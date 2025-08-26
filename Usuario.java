@@ -8,6 +8,6 @@ package com.mycompany.practica1;
  *
  * @author klauf
  */
-public class Cajero {
+class Usuario {
     
 }
