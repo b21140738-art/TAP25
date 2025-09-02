@@ -36,7 +36,7 @@ public class cuenta{
         return this.pin.equals(pinIngresado);
     }
         //proceso de validacion para retiro
-    public boolean retirar(double cantidad(){
+    public boolean retirar(double cantidad){
         if(cantidad>0 && cantidad <= this.saldo){
             saldo -= cantidad;
             return true;
