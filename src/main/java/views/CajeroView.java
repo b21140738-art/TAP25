@@ -32,9 +32,10 @@ public class CajeroView {
         System.out.println("1. Consultar saldo");
         System.out.println("2. Retirar");
         System.out.println("3. Depositar");
-        //definir los demas metodos de tarea
+        System.out.println("4. Transferir");
+        System.out.println("5. Cambiar pin");
         System.out.println("9. Salir");
-
+        //definir los demas metodos de tarea
     }
 
     public int leerOpcion() {
@@ -63,6 +64,16 @@ public class CajeroView {
     public void mostrarMensaje(String mensaje){
         System.out.println("==="+mensaje);
     }
-// tarea personalizar mensaje de error y exito
+
+    public void mostrarError(String mensaje){
+        System.out.println("===========================================");
+        System.out.println("Error: "+mensaje);
+
+    }
+
+    public void salir
+
+    // tarea personalizar mensaje de error y exito
+//tarea metodo para salir cerra el scanner
 
 }

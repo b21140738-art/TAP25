@@ -59,4 +59,12 @@ public class cuenta{
         }
         return false;
     }
+
+    public boolean cambiarPin(String pinNuevo){
+        if(!this.pin.equals(pinNuevo)){
+            this.pin = pinNuevo;
+            return true;
+        }
+        return false;
+    }
 }
