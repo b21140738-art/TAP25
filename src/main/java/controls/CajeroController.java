@@ -48,6 +48,12 @@ public class CajeroController {
                 case 3:
                     realizarDeposito();
                     break;
+                case 4:
+                    realizarTransferencia();
+                    break;
+                case 5:
+                    cambiarPin();
+                    break;
                 case 9:
 
                     break;
@@ -89,6 +95,22 @@ public class CajeroController {
             view.mostrarMensaje("Saldo insuficiente");
         }
     }
+    public void cambiarPin() {
+        String pin = view.solicitarPin();
+    }
+
+    public void realizarTransferencia(){
+        double cantidad = view.solicitarCantidad("transferencia");
+        if (cantidad <= 0) {
+            view.mostrarMensaje(")Error en la cantidad");
+            return;
+
+        }
+
+
+
+    }
+
 
 
 }
