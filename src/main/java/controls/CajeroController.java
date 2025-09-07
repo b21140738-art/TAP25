@@ -96,14 +96,11 @@ public class CajeroController {
         }
     }
     public void cambiarPin() {
-        String pin = view.solicitarPin();
+
     }
 
     public void realizarTransferencia(){
-        double cantidad = view.solicitarCantidad("transferencia");
-        if (cantidad <= 0) {
-            view.mostrarMensaje(")Error en la cantidad");
-            return;
+
 
         }
 

@@ -9,6 +9,7 @@ public class CajeroView {
         scanner = new Scanner(System.in);
 
     }
+
     public void mostrarBienvenida() {
         System.out.println("=================================================");
         System.out.println("Bienvenido al cajero automatico del banco BBVA");
@@ -71,7 +72,10 @@ public class CajeroView {
 
     }
 
-    public void salir
+
+    public void cerrarScanner(){
+        scanner.close();
+    }
 
     // tarea personalizar mensaje de error y exito
 //tarea metodo para salir cerra el scanner

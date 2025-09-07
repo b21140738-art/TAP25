@@ -66,4 +66,7 @@ public class CajeroModel {
         }
         return false;
     }
+    public void cambiarPin(String pin) {
+
+    }
 }
