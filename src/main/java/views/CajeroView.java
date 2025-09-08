@@ -10,32 +10,38 @@ public class CajeroView {
 
     }
 
+    class Imprimir{
+        public static <T> void imprimir(T elemento){
+            System.out.print(elemento);
+        }
+    }
+
     public void mostrarBienvenida() {
-        System.out.println("=================================================");
-        System.out.println("Bienvenido al cajero automatico del banco BBVA");
-        System.out.println("================================================");
+        Imprimir.imprimir("=================================================");
+        Imprimir.imprimir("Bienvenido al cajero automatico del banco BBVA");
+        Imprimir.imprimir("================================================");
 
     }
 
     public String solicitarnumeroCuenta(){
-        System.out.println("Ingresa tu numero de cuenta: ");
+        Imprimir.imprimir("Ingresa tu numero de cuenta: ");
         return scanner.nextLine();
     }
     public String solicitarPin(){
-        System.out.println("Ingresa una pin: ");
+        Imprimir.imprimir("Ingresa una pin: ");
         return scanner.nextLine();
     }
 
     public void mostrarMenuPrincipal(String Titular) {
-        System.out.println("=======================================");
-        System.out.println("Bienvenid@"+Titular);
-        System.out.println("=========================================");
-        System.out.println("1. Consultar saldo");
-        System.out.println("2. Retirar");
-        System.out.println("3. Depositar");
-        System.out.println("4. Transferir");
-        System.out.println("5. Cambiar pin");
-        System.out.println("9. Salir");
+        Imprimir.imprimir("=======================================");
+        Imprimir.imprimir("Bienvenid@"+Titular);
+        Imprimir.imprimir("=========================================");
+        Imprimir.imprimir("1. Consultar saldo");
+        Imprimir.imprimir("2. Retirar");
+        Imprimir.imprimir("3. Depositar");
+        Imprimir.imprimir("4. Transferir");
+        Imprimir.imprimir("5. Cambiar pin");
+        Imprimir.imprimir("9. Salir");
         //definir los demas metodos de tarea
     }
 
@@ -49,13 +55,13 @@ public class CajeroView {
     }
 
     public void mostrarSaldo(double saldo) {
-        System.out.println("============================================");
-        System.out.println("Tu saldo actual es: "+saldo);
-        System.out.println("============================================");
+        Imprimir.imprimir("============================================");
+        Imprimir.imprimir("Tu saldo actual es: "+saldo);
+        Imprimir.imprimir("============================================");
     }
 
     public double solicitarCantidad(String operacion){
-        System.out.println("Ingresa la cantidad a " + operacion+":");
+        Imprimir.imprimir("Ingresa la cantidad a " + operacion+":");
         try{
             return Double.parseDouble(scanner.nextLine());
         }catch (NumberFormatException e){
@@ -63,12 +69,12 @@ public class CajeroView {
         }
     }
     public void mostrarMensaje(String mensaje){
-        System.out.println("==="+mensaje);
+        Imprimir.imprimir("==="+mensaje);
     }
 
     public void mostrarError(String mensaje){
-        System.out.println("===========================================");
-        System.out.println("Error: "+mensaje);
+        Imprimir.imprimir("===========================================");
+        Imprimir.imprimir("Error: "+mensaje);
 
     }
 

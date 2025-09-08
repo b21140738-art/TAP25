@@ -6,6 +6,7 @@ import java.util.Map;
 public class CajeroModel {
     private Map<String,cuenta> cuentas;
     private cuenta cuentaActual;
+    private cuenta numeroCuentaDestino;
     public CajeroModel() {
         cuentas = new HashMap<>();
         inicializarcuentas();
@@ -55,7 +56,7 @@ public class CajeroModel {
     }
 
     //definir el metodo para transferir
-    public boolean realizarTransferencia(String numeroCuentaDestino, double cantidad) {
+    public boolean realizarTransferencia(double cantidad) {
 
         if (cuentaActual == null) {
             return false;

@@ -95,11 +95,21 @@ public class CajeroController {
     }
 
     public void cambiarPin() {
+        String pin = view.solicitarPin();
 
     }
 
     public void realizarTransferencia() {
-
+        double cantidad = view.solicitarCantidad("Transferencia");
+        if (cantidad <= 0) {
+            view.mostrarMensaje("Saldo insuficiente");
+            return;
+        }
+        if (model.realizarTransferencia(cantidad)) {
+            view.mostrarMensaje("transferencia exitosa de: " + cantidad);
+        } else {
+            view.mostrarMensaje("Saldo insuficiente");
+        }
 
     }
 
