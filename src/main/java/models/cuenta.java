@@ -51,20 +51,41 @@ public class cuenta{
     }
 
     //TAREA: DISEÑAR los COMPORTAMIENTO DEL CAJERO restantes
-    public boolean transferir(cuenta destino, double cantidad) {
-        if (cantidad > 0 && cantidad <= saldo) {
-            this.saldo -= cantidad;
-            destino.depositar(cantidad);
+
+    public boolean transferir(cuenta cuentaDestino, double cantidad) {
+        if (cantidad <= 0) {
+            return false;
+        }
+
+        if (this.saldo < cantidad) {
+            return false;
+        }
+
+        if (cuentaDestino == null) {
+            return false;
+        }
+
+        if (this.retirar(cantidad)) {
+            cuentaDestino.depositar(cantidad);
             return true;
         }
+
         return false;
     }
-
-    public boolean cambiarPin(String pinNuevo){
-        if(!this.pin.equals(pinNuevo)){
-            this.pin = pinNuevo;
-            return true;
+    public boolean cambiarNip(String pinActual, String nuevoPin) {
+        if (!validarpin(pinActual)) {
+            return false;
         }
-        return false;
+
+        if (nuevoPin == null || nuevoPin.trim().isEmpty()) {
+            return false;
+        }
+
+        if (!nuevoPin.matches("\\d{4}")) {
+            return false;
+        }
+
+        this.pin = nuevoPin;
+        return true;
     }
 }

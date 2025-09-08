@@ -18,15 +18,15 @@ public class CajeroController {
     public void iniciarSistema() {
         view.mostrarBienvenida();
         while (sistemaActivo) {
-            if(autenticarUsuario()){
+            if (autenticarUsuario()) {
                 ejecutarMenuPrincipal();
-            }
-            else{
+            } else {
                 view.mostrarMensaje("Credenciales incorrectas");
             }
         }
         view.mostrarMensaje("Gracias por usar nuestro cajero");
     }
+
     private boolean autenticarUsuario() {
         String numeroCuenta = view.solicitarnumeroCuenta();
         String pin = view.solicitarPin();
@@ -44,7 +44,7 @@ public class CajeroController {
                     break;
                 case 2:
                     realizarRetiro();
-                        break;
+                    break;
                 case 3:
                     realizarDeposito();
                     break;
@@ -55,7 +55,7 @@ public class CajeroController {
                     cambiarPin();
                     break;
                 case 9:
-
+                    cerrarSistema();
                     break;
                 default:
                     break;
@@ -71,43 +71,42 @@ public class CajeroController {
     public void realizarRetiro() {
         double cantidad = view.solicitarCantidad("retirar");
         if (cantidad <= 0) {
-             view.mostrarMensaje("Saldo insuficiente");
-             return;
+            view.mostrarMensaje("Saldo insuficiente");
+            return;
         }
         if (model.realizarRetiro(cantidad)) {
             view.mostrarMensaje("Retiro exitoso de: " + cantidad);
-        }
-        else {
+        } else {
             view.mostrarMensaje("Saldo insuficiente");
         }
-        }
+    }
 
-        public void realizarDeposito() {
+    public void realizarDeposito() {
         double cantidad = view.solicitarCantidad("Deposito");
         if (cantidad <= 0) {
             view.mostrarMensaje(")Error en la cantidad");
             return;
         }
-        if(model.realizarDeposito(cantidad)){
-            view.mostrarMensaje("Deposito exitoso de"+cantidad);
-        }
-        else {
+        if (model.realizarDeposito(cantidad)) {
+            view.mostrarMensaje("Deposito exitoso de" + cantidad);
+        } else {
             view.mostrarMensaje("Saldo insuficiente");
         }
     }
+
     public void cambiarPin() {
 
     }
 
-    public void realizarTransferencia(){
-
-
-        }
-
+    public void realizarTransferencia() {
 
 
     }
 
 
+    public void cerrarSistema() {
+        view.cerrarScanner();
 
+
+    }
 }
