@@ -1,8 +1,6 @@
-/*
-Métodos Genéricos
-Los métodos genéricos permiten definir parámetros de tipo sin hacer la clase
-genérica
- */
+/// • Par<K, V> es una clase genérica con dos parámetros de tipo.
+/// • Se usa con String e Integer.
+/// multiples tipos genericos
 
 public class GenericE1 {
     public static void main(String[] args) {
@@ -14,8 +12,7 @@ public class GenericE1 {
 class Par<K, V> {
     private K clave;
     private V valor;
-/// Metodos genericos, utilizan el parametro T para retornar cualquier
-/// tipo de dato sin tener que hacer la clase generica
+
     public Par(K clave, V valor) {
         this.clave = clave;
         this.valor = valor;
