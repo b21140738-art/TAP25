@@ -1,5 +1,5 @@
 /*
-las interfaces genericas funcionan igual que las clases
+las interfaces genericas funcionan igual que las clases normales
  */
 
 public class InterfazGenerica {

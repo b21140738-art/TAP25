@@ -9,13 +9,15 @@
     public class Persona <V> {
     private String nombre;
     private String apellidos;
-    private V edad; //sera de tipo v, lo que permitira que admita integer y double
+    private V sueldo; //sera de tipo v, lo que permitira que admita integer y double
 
-    public Persona(String nombre, String apellidos, V edad) {
+    public Persona(String nombre, String apellidos, V sueldo) {
         super();
         this.nombre = nombre;
         this.apellidos = apellidos;
-        this.edad = edad;
+        this.sueldo = sueldo;
+
+
     }
 
     public String getNombre() {
@@ -34,23 +36,24 @@
         this.apellidos = apellidos;
     }
 
-    public V getEdad() {
-        return edad;
+    public V getSueldo() {
+        return sueldo;
     }
 
-    public void setEdad(V edad) {
-        this.edad = edad;
+    public void setSueldo(V sueldo) {
+        this.sueldo = sueldo;
     }
 
+    public static void main(String[] args) {
     //Instanciamos una clase Persona con la edad en Integer
-    Persona<Integer> persona1 = new Persona<Integer>("claudia", "Pizano", 32);
+    Persona<Integer> persona1 = new Persona<Integer>("claudia", "Pizano", 32000);
     //Instanciamos una clase Persona con la edad en Double
-    Persona<Double> persona2 = new Persona<Double>("alejandro", "pizano", 17.3);
-
-System.out.println("La persona 1 tiene: " + persona1.getEdad() + " años");
-System.out.println("El atributo edad de persona 1 es: " + persona1.getEdad().getClass().getName());
-System.out.println("La persona 2 tiene: " + persona2.getEdad() + " años");
-System.out.println("El atributo edad de persona 2 es: " + persona2.getEdad().getClass().getName());
+    Persona<Double> persona2 = new Persona<Double>("alejandro", "pizano", 17000.3);
+    System.out.println(persona1.getNombre()+" "+ persona1.getApellidos()+" tiene un sueldo de: " + persona1.getSueldo() + " pesos mexicanos");
+    System.out.println("El atributo sueldo de persona 1 es: " + persona1.getSueldo().getClass().getName());
+    System.out.println(persona2.getNombre()+" "+ persona2.getApellidos()+" tiene un sueldo de: " + persona2.getSueldo() + " pesos mexicanos");
+    System.out.println("El atributo sueldo de persona 2 es: " + persona2.getSueldo().getClass().getName());
+}
 
 }
 
