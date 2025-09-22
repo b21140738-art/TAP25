@@ -26,7 +26,7 @@ public class CajeroModel {
         cuenta cuenta = cuentas.get(numeroCuenta);
         if (cuenta != null && cuenta.validarpin(pin)) {
             this.cuentaActual = cuenta;
-            return false;
+            return true;
         }
         return false;
     }

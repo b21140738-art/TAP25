@@ -17,14 +17,14 @@ public class CajeroView {
     }
 
     public void mostrarBienvenida() {
-        Imprimir.imprimir("=================================================");
+        Imprimir.imprimir("\n=================================================");
         Imprimir.imprimir("Bienvenido al cajero automatico del banco BBVA");
         Imprimir.imprimir("================================================");
 
     }
 
     public String solicitarnumeroCuenta(){
-        Imprimir.imprimir("Ingresa tu numero de cuenta: ");
+        Imprimir.imprimir("\nIngresa tu numero de cuenta: ");
         return scanner.nextLine();
     }
     public String solicitarPin(){
@@ -33,15 +33,15 @@ public class CajeroView {
     }
 
     public void mostrarMenuPrincipal(String Titular) {
-        Imprimir.imprimir("=======================================");
-        Imprimir.imprimir("Bienvenid@"+Titular);
+        Imprimir.imprimir("\n=======================================");
+        Imprimir.imprimir("Bienvenid@ "+Titular);
         Imprimir.imprimir("=========================================");
-        Imprimir.imprimir("1. Consultar saldo");
-        Imprimir.imprimir("2. Retirar");
-        Imprimir.imprimir("3. Depositar");
-        Imprimir.imprimir("4. Transferir");
-        Imprimir.imprimir("5. Cambiar pin");
-        Imprimir.imprimir("9. Salir");
+        Imprimir.imprimir("\n1. Consultar saldo");
+        Imprimir.imprimir("\n2. Retirar");
+        Imprimir.imprimir("\n3. Depositar");
+        Imprimir.imprimir("\n4. Transferir");
+        Imprimir.imprimir("\n5. Cambiar pin");
+        Imprimir.imprimir("\n9. Salir\n");
         //definir los demas metodos de tarea
     }
 
