@@ -7,7 +7,7 @@ package tap.Factory;
 public class ProductoFactory {
 
     /**
-     * Crea un nuevo producto con los parámetros indicados.
+     * Crea un nuevo producto con los parámetros indicados. XXXXXXXX
      *
      * @param codigo            Código del producto.
      * @param nombre            Nombre del producto.

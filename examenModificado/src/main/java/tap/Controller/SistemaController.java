@@ -379,7 +379,7 @@ public class SistemaController {
     public void pruebaFactoryProducto() {
         view.mensaje("Probando creación de producto con precio inválido y fecha vacía...");
 
-        InventarioModel producto = InventarioFactory.crearProducto("P001", "Producto de Prueba", -50.0, 10, "General","");
+        InventarioModel producto = InventarioFactory.crearProducto("P001", "Producto de Prueba", -50.0, 10, "General","10/10/2025");
 
         view.mensaje("Producto creado:");
         view.mensaje("Nombre: " + producto.getNombre());

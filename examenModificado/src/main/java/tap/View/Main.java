@@ -11,5 +11,6 @@ public class Main {
         tap.View.SistemaView view = new tap.View.SistemaView();
         SistemaController controller = new SistemaController(view);
         controller.iniciar();
+        String s ;
     }
 }
