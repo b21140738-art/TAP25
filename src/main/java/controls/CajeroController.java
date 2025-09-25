@@ -78,7 +78,7 @@ public class CajeroController {
     private void ejecutarMenuPrincipal() {
         boolean seccionActiva = true;
         while (seccionActiva) {
-            view.mostrarMenuPrincipal(model.getCuentaActual().getTitular());
+            view.mostrarMenuPrincipal(model.getCuentaActual().getTitular(),model.getCuentaActual().getTipoCuenta());
             int opcion = view.leerOpcion();
 
             if (opcion == 9) {

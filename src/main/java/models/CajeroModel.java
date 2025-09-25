@@ -13,14 +13,10 @@ public class CajeroModel {
     }
 
     private void inicializarcuentas() {
-        cuentas.put("12345", new cuenta("12345",
-                "1111",5000,"Juan Perez"));
-        cuentas.put("67890",new cuenta("67890",
-                "2222",200,"Diana Olvera"));
-        cuentas.put("12134", new cuenta("12134",
-                "3333",300000,"Elena Villa"));
-        cuentas.put("21234", new cuenta("21234",
-                "4444",1000000,"Catalina Villa"));
+        cuentas.put("12345", new cuenta.Builder().setNumeroCuenta("12345").setPin("1111").setSaldo(5000).setTitular("Juan Perez").setTipoCuenta("ahorro").build());
+        cuentas.put("67890",new cuenta.Builder().setNumeroCuenta("67890").setPin("2222").setSaldo(200).setTitular("Diana Olvera").setTipoCuenta("Corriente/normal").build());
+        cuentas.put("12134",new cuenta.Builder().setNumeroCuenta("12134").setPin("3333").setSaldo(300000).setTitular("Elena Villa").setTipoCuenta("INVERSION").build());
+        cuentas.put("21234", new cuenta.Builder().setNumeroCuenta("21234").setPin("4444").setSaldo(1000000).setTitular("Catalina Villa").build());
     }
     public boolean autenticar(String numeroCuenta, String pin) {
         cuenta cuenta = cuentas.get(numeroCuenta);

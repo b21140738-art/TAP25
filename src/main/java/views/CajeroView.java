@@ -1,5 +1,7 @@
 package views;
 
+import models.cuenta;
+
 import java.util.Scanner;
 
 public class CajeroView {
@@ -32,10 +34,12 @@ public class CajeroView {
         return scanner.nextLine();
     }
 
-    public void mostrarMenuPrincipal(String Titular) {
+    public void mostrarMenuPrincipal(String Titular, String tipoCuenta) {
         Imprimir.imprimir("\n=======================================");
-        Imprimir.imprimir("Bienvenid@ "+Titular);
-        Imprimir.imprimir("=========================================");
+        Imprimir.imprimir("Bienvenid@ "+Titular );
+        Imprimir.imprimir("=========================================\n");
+        System.out.println("Tipo de cuenta creada: " + tipoCuenta);
+        Imprimir.imprimir("\nIngresa una opcion: ");
         Imprimir.imprimir("\n1. Consultar saldo");
         Imprimir.imprimir("\n2. Retirar");
         Imprimir.imprimir("\n3. Depositar");

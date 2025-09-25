@@ -5,15 +5,15 @@ public class cuenta{
     private String pin;
     private double saldo;
     private String Titular;
+    private String tipoCuenta;
 
-    public cuenta(String numeroCuenta, String pin, double saldoIncial, String Titular) {
-        this.numeroCuenta = numeroCuenta;
-        this.pin = pin;
-        this.saldo = saldoIncial;
-        this.Titular = Titular;
-
-    }
-
+ private cuenta(Builder builder){
+     this.numeroCuenta = builder.numerocuenta;
+     this.pin = builder.pin;
+     this.saldo = builder.saldo;
+     this.Titular = builder.titular;
+     this.tipoCuenta = builder.tipoCuenta;//AHORRO, INVERSION, CORRIENTE
+ }
     public String getNumeroCuenta() {
         return numeroCuenta;
     }
@@ -28,6 +28,10 @@ public class cuenta{
 
     public String getTitular() {
         return Titular;
+    }
+
+    public String getTipoCuenta() {
+        return tipoCuenta;
     }
 
     //Reglas de negocio
@@ -56,7 +60,9 @@ public class cuenta{
         if (cantidad <= 0) {
             return false;
         }
-
+        if(tipoCuenta.equalsIgnoreCase("Ahorro") && cantidad >10000){
+            return false; //limite de tranferencia
+        }
         if (this.saldo < cantidad) {
             return false;
         }
@@ -87,5 +93,43 @@ public class cuenta{
 
         this.pin = nuevoPin;
         return true;
+    }
+
+    //clase builder
+    public static class Builder{
+     private String numerocuenta;
+     private String pin;
+     private double saldo;
+     private String titular;
+     private String tipoCuenta="Corriente/normal";
+
+     public Builder setNumeroCuenta(String numeroCuenta){
+        this.numerocuenta = numeroCuenta;
+        return this;
+     }
+
+     public Builder setPin(String pin){
+         this.pin = pin;
+         return this;
+     }
+
+     public Builder setSaldo(double saldo){
+         this.saldo = saldo;
+         return this;
+
+     }
+     public Builder setTitular(String titular){
+         this.titular = titular;
+         return this;
+     }
+
+        public Builder setTipoCuenta(String tipoCuenta) {
+            this.tipoCuenta = tipoCuenta;
+            return this;
+        }
+
+        public cuenta build(){
+         return new cuenta(this);
+     }
     }
 }
