@@ -7,6 +7,8 @@ public class InventarioModel {
     private final String codigo;
     private final String nombre;
     private final double precio;
+    private final double precioDescuento;
+    private final double porcentajeDescuento;
     private final int cantidad;
     private final String categoria;
     private final String fechaVencimiento;
@@ -21,11 +23,14 @@ public class InventarioModel {
      * @param cantidad        Cantidad disponible del producto.
      * @param categoria       Categoría del producto.
      * @param fechaVencimiento Fecha de vencimiento del producto.
+     * @param precioDescuento parametro para los descuentos de los productos
      */
-    public InventarioModel(String codigo, String nombre, double precio, int cantidad, String categoria, String fechaVencimiento) {
+    public InventarioModel(String codigo, String nombre, double precio, double precioDescuento, double porcentajeDescuento, int cantidad, String categoria, String fechaVencimiento) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.precio = precio;
+        this.precioDescuento = precioDescuento;
+        this.porcentajeDescuento = porcentajeDescuento;
         this.cantidad = cantidad;
         this.categoria = categoria;
         this.fechaVencimiento = fechaVencimiento;
@@ -44,6 +49,10 @@ public class InventarioModel {
         return precio;
     }
 
+    public double getPrecioDescuento() { return  precioDescuento; }
+public double getPorcentajeDescuento() {
+        return porcentajeDescuento;
+}
     public int getCantidad() {
         return cantidad;
     }

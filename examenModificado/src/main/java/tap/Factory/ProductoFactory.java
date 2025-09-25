@@ -1,23 +1,34 @@
 package tap.Factory;
 
 
+import tap.Model.InventarioModel;
+
 /**
  * clase factory para la creación de instancias de InventarioModel.
  */
 public class ProductoFactory {
 
-    /**
-     * Crea un nuevo producto con los parámetros indicados. XXXXXXXX
-     *
-     * @param codigo            Código del producto.
-     * @param nombre            Nombre del producto.
-     * @param precio            Precio del producto.
-     * @param cantidad          Cantidad disponible.
-     * @param categoria         Categoría del producto.
-     * @param fechaVencimiento  Fecha de vencimiento del producto.
-     * @return Una nueva instancia de InventarioModel.
-     */
+
     public static tap.Model.InventarioModel crearProducto(String codigo, String nombre, double precio, int cantidad, String categoria, String fechaVencimiento) {
-        return new tap.Model.InventarioModel(codigo, nombre, precio, cantidad, categoria, fechaVencimiento);
+
+
+        double porcentajeDescuento = obtenerPorcentajeDescuento(categoria);
+        double precioDescuento = precio * (1 - porcentajeDescuento / 100);
+
+        return new InventarioModel(codigo, nombre, precio, precioDescuento, porcentajeDescuento,cantidad, categoria, fechaVencimiento);
+    }
+
+    private static double obtenerPorcentajeDescuento(String categoria) {
+       if ("ALIMENTOS".equals(categoria)) {
+            return 20.0;
+        } else if ("ROPA".equals(categoria)) {
+            return 25.0;
+        } else if ("ELECTRODOMESTICOS".equals(categoria)) {
+            return 5.0;
+        }
+        return 0;
+
+
     }
 }
+

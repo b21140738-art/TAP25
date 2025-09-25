@@ -129,8 +129,13 @@ public class SistemaView {
         System.out.println("ERROR: " + mensaje);
     }
 
-    public String confirmacion(){
+    public String confirmacion() {
         mensaje("Desea eliminar este cliente? (s/n): ");
+        return sc.nextLine();
+    }
+        //metodo para pedir el tipo de cliente
+    public String pedirTipoCliente(){
+        System.out.print("Ingrese tipo de cliente (VIP-FRECUENTE-NORMAL: ");
         return sc.nextLine();
     }
 }

@@ -99,8 +99,9 @@ public class SistemaController {
         String email = view.pedirEmail();
         String telefono = view.pedirTelefono();
         double saldo = view.pedirSaldo();
+        String tipo = view.pedirTipoCliente(); //pedir el tipo de cliente a registrar
 
-        ClienteModel nuevoCliente = ClienteFactory.crearCliente(id, nombre, email, telefono, saldo);
+        ClienteModel nuevoCliente = ClienteFactory.crearCliente(tipo, id, nombre, email, telefono, saldo);
         listaClientes.agregar(nuevoCliente);
         view.mensaje("Cliente agregado correctamente.");
     }
@@ -124,7 +125,8 @@ public class SistemaController {
         String email = view.pedirEmail();
         String telefono = view.pedirTelefono();
         double saldo = view.pedirSaldo();
-        ClienteModel clienteModificado = ClienteFactory.crearCliente(id, nombre, email, telefono, saldo);
+        String tipo = view.pedirTipoCliente();
+        ClienteModel clienteModificado = ClienteFactory.crearCliente(tipo, id, nombre, email, telefono, saldo);
         listaClientes.actualizar(index - 1, clienteModificado);
         view.mensaje("Cliente modificado correctamente.");
     }
@@ -162,7 +164,8 @@ public class SistemaController {
                     + ", Nombre: " + c.getNombre()
                     + ", Email: " + c.getEmail()
                     + ", Teléfono: " + c.getTelefono()
-                    + ", Saldo: " + c.getSaldo());
+                    + ", Saldo: " + c.getSaldo()
+                    +", Beneficios: "+c.getBeneficios()); //muestra los beneficios del cliente de acuerdo a su tipo de cliente
         }
     }
 
@@ -182,7 +185,7 @@ public class SistemaController {
         String categoria = view.pedirCategoria();
         String fechaVencimiento = view.pedirFechaVencimiento();
 
-        InventarioModel nuevoProducto = InventarioFactory.crearProducto(codigo, nombre, precio, cantidad, categoria, fechaVencimiento);
+        InventarioModel nuevoProducto = ProductoFactory.crearProducto(codigo, nombre, precio, cantidad, categoria, fechaVencimiento);
         listaInventario.agregar(nuevoProducto);
         view.mensaje("Producto agregado correctamente.");
     }
@@ -238,6 +241,8 @@ public class SistemaController {
             view.mensaje((i + 1) + ". Código: " + p.getCodigo()
                     + ", Nombre: " + p.getNombre()
                     + ", Precio: " + p.getPrecio()
+                    + ", precio con descuento: "+ p.getPrecioDescuento()
+                    + " porcentaje de descuento -> "+p.getPorcentajeDescuento() +"%"
                     + ", Cantidad: " + p.getCantidad()
                     + ", Categoría: " + p.getCategoria()
                     + ", Fecha de Vencimiento: " + p.getFechaVencimiento());
@@ -285,6 +290,8 @@ public class SistemaController {
                 view.mensaje("Código: " + p.getCodigo());
                 view.mensaje("Nombre: " + p.getNombre());
                 view.mensaje("Precio: " + p.getPrecio());
+                view.mensaje("precio con descuento: " + p.getPrecioDescuento()
+                +" Porcentaje de descuento -> "+p.getPorcentajeDescuento()+" %");
                 view.mensaje("Cantidad: " + p.getCantidad());
                 view.mensaje("Categoría: " + p.getCategoria());
                 view.mensaje("Fecha de Vencimiento: " + p.getFechaVencimiento());
@@ -354,6 +361,7 @@ public class SistemaController {
                 view.mensaje("Email: " + c.getEmail());
                 view.mensaje("Teléfono: " + c.getTelefono());
                 view.mensaje("Saldo: " + c.getSaldo());
+                view.mensaje("Beneficios: " + c.getBeneficios());
                 return;
             }
         }
@@ -379,7 +387,7 @@ public class SistemaController {
     public void pruebaFactoryProducto() {
         view.mensaje("Probando creación de producto con precio inválido y fecha vacía...");
 
-        InventarioModel producto = InventarioFactory.crearProducto("P001", "Producto de Prueba", -50.0, 10, "General","10/10/2025");
+        InventarioModel producto = InventarioFactory.VERIFICARPRECIO("P001", "Producto de Prueba", -50.0, 10, 0,0,"General","10/10/2025");
 
         view.mensaje("Producto creado:");
         view.mensaje("Nombre: " + producto.getNombre());

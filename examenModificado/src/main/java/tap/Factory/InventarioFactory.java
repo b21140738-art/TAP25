@@ -20,7 +20,7 @@ public class InventarioFactory {
      * @param fechaVencimiento  Fecha de vencimiento del producto.
      * @return Instancia de InventarioModel validada y creada.
      */
-    public static InventarioModel crearProducto(String codigo, String nombre, double precio, int cantidad, String categoria, String fechaVencimiento) {
+    public static InventarioModel VERIFICARPRECIO(String codigo, String nombre, double precio, double precioDescuento, double porcentajeDescuento, int cantidad, String categoria, String fechaVencimiento) {
         if (precio <= 0) {
             precio = 1.0; // Precio mínimo
         }
@@ -29,6 +29,6 @@ public class InventarioFactory {
             fechaVencimiento = "01/01/2029"; // Fecha por defecto si está vacía
         }
 
-        return new InventarioModel(codigo, nombre, precio, cantidad, categoria, fechaVencimiento);
+        return new InventarioModel(codigo, nombre, precio,precioDescuento, porcentajeDescuento, cantidad, categoria, fechaVencimiento);
     }
 }

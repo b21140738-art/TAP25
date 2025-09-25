@@ -66,5 +66,13 @@ public class ClienteModel {
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
+
+
+    //metodo que devuelve los beneficios del cliente.
+    public String getBeneficios(){
+        return "Sin beneficios especiales";
+        //este metodo puede ser modificado por las subclases para personalizar en cada caso
+
+    }
 }
 
