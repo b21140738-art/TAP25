@@ -17,4 +17,10 @@ public class Pizza {
     public void setRelleno(String relleno) {
         this.relleno = relleno;
     }
+
+    @Override
+    public String toString() {
+        return "Masa: " + masa + ", Salsa: " + salsa + ", Relleno: " + relleno;
+    }
+
 }

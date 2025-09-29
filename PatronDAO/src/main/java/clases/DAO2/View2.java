@@ -18,8 +18,14 @@ public class View2 {
 
             // Crear un nuevo usuario
             Usuario nuevoUsuario = new Usuario();
-            nuevoUsuario.setNombre("Juan Pérez");
+            /*nuevoUsuario.setNombre("Juan Pérez");
             nuevoUsuario.setEmail("sjuan@example.com");
+            nuevoUsuario.setPassword("contraseña123");
+            nuevoUsuario.setFechaRegistro(LocalDate.now());*/
+
+            //NUEVO USUARIO
+            nuevoUsuario.setNombre("Claudia Pizano");
+            nuevoUsuario.setEmail("ClaudiaPizano@example.com");
             nuevoUsuario.setPassword("contraseña123");
             nuevoUsuario.setFechaRegistro(LocalDate.now());
 

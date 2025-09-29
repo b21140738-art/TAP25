@@ -1,6 +1,5 @@
 package clases;
 
-import javax.swing.JApplet;
 //Producto
 public class PicantePizzaBuilder extends PizzaBuilder {
 

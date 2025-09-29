@@ -5,7 +5,7 @@ package clases;
 /// 4. el cliente recupera el producto desde el constructor
 //director:Cocina
 
-    import javax.swing.JApplet;
+
 public class Cocina {
     private PizzaBuilder pizzaBuilder;
 
