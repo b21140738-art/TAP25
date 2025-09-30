@@ -1,8 +1,7 @@
 package tap;
 
-/**
- * Sin descuento aplicado.
- */
+//Sin descuento aplicado.
+
 public class SinDescuento implements EstrategiaDescuento {
     @Override
     public double aplicarDescuento(double precioOriginal) {

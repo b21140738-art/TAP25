@@ -10,8 +10,6 @@ public class Producto {
 
     /**
      * Constructor del producto.
-     * @param nombre Nombre del producto.
-     * @param precio Precio base del producto.
      */
     public Producto(String nombre, double precio) {
         this.nombre = nombre;
@@ -21,7 +19,6 @@ public class Producto {
 
     /**
      * Establece la estrategia de descuento.
-     * @param estrategia Estrategia a aplicar.
      */
     public void setEstrategia(EstrategiaDescuento estrategia) {
         this.estrategia = estrategia;
@@ -29,7 +26,6 @@ public class Producto {
 
     /**
      * Calcula el precio final con descuento.
-     * @return Precio con descuento aplicado.
      */
     public double getPrecioFinal() {
         return estrategia.aplicarDescuento(precio);
