@@ -25,7 +25,7 @@ public class View2 {
 
             //NUEVO USUARIO
             nuevoUsuario.setNombre("Claudia Pizano");
-            nuevoUsuario.setEmail("ClaudiaPizano@example.com");
+            nuevoUsuario.setEmail("ClaudiaPino@example.com");
             nuevoUsuario.setPassword("contraseña123");
             nuevoUsuario.setFechaRegistro(LocalDate.now());
 
