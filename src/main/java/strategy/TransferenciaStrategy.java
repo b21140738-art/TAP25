@@ -3,16 +3,13 @@ package strategy;
 import models.CajeroModel;
 import views.CajeroView;
 
-/**
+/*
  * Estrategia para realizar una transferencia entre cuentas.
  */
 public class TransferenciaStrategy implements OperacionStrategy {
 
-    /**
+    /*
      * Solicita una cantidad y la transfiere a otra cuenta si es posible.
-     *
-     * @param model Modelo con la lógica del cajero.
-     * @param view Vista para mostrar mensajes al usuario.
      */
     @Override
     public void ejecutar(CajeroModel model, CajeroView view) {

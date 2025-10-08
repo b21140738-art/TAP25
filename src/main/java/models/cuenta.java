@@ -9,7 +9,7 @@ public class cuenta{
 
  private cuenta(Builder builder){
      this.numeroCuenta = builder.numerocuenta;
-     this.pin = builder.pin;
+     this.pin = controls.Hash.generarHash(builder.pin);
      this.saldo = builder.saldo;
      this.Titular = builder.titular;
      this.tipoCuenta = builder.tipoCuenta;//AHORRO, INVERSION, CORRIENTE
@@ -37,7 +37,11 @@ public class cuenta{
     //Reglas de negocio
          //validacion de pin ingresado desde consola
     public boolean validarpin(String pinIngresado){
-        return this.pin.equals(pinIngresado);
+        if (pinIngresado == null) {
+            return false;
+        }
+        String hashIngresado = controls.Hash.generarHash(pinIngresado);
+        return this.pin.equals(hashIngresado);
     }
         //proceso de validacion para retiro
     public boolean retirar(double cantidad){
@@ -91,7 +95,7 @@ public class cuenta{
             return false;
         }
 
-        this.pin = nuevoPin;
+        this.pin = controls.Hash.generarHash(nuevoPin);
         return true;
     }
 

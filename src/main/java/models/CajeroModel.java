@@ -74,7 +74,6 @@ public class CajeroModel {
     }
 
 /// Cambia NIP
-///
 
     public boolean cambiarNip(String pinActual, String nuevoPin) {
         if (cuentaActual == null) {

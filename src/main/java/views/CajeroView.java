@@ -49,6 +49,21 @@ public class CajeroView {
         //definir los demas metodos de tarea
     }
 
+    public void mostrarMenuPrincipal(String Titular, String tipoCuenta, String nipHasheado) {
+        Imprimir.imprimir("\n=======================================");
+        Imprimir.imprimir("Bienvenid@ " + Titular);
+        Imprimir.imprimir("=========================================\n");
+        System.out.println("NIP (SHA-256): " + nipHasheado);
+        System.out.println("Tipo de cuenta creada: " + tipoCuenta);
+        Imprimir.imprimir("\nIngresa una opcion: ");
+        Imprimir.imprimir("\n1. Consultar saldo");
+        Imprimir.imprimir("\n2. Retirar");
+        Imprimir.imprimir("\n3. Depositar");
+        Imprimir.imprimir("\n4. Transferir");
+        Imprimir.imprimir("\n5. Cambiar pin");
+        Imprimir.imprimir("\n9. Salir\n");
+    }
+
     public int leerOpcion() {
         try {
             return Integer.parseInt(scanner.nextLine());

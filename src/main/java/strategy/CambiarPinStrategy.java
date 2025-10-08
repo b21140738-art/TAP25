@@ -3,12 +3,12 @@ package strategy;
 import models.CajeroModel;
 import views.CajeroView;
 
-/**
+/*
  * Estrategia para cambiar el PIN de la cuenta actual.
  */
 public class CambiarPinStrategy implements OperacionStrategy {
 
-    /**
+    /*
      * Solicita el PIN actual y el nuevo PIN, y actualiza la cuenta si los datos son correctos.
      *
      * @param model Modelo con la lógica del cajero.

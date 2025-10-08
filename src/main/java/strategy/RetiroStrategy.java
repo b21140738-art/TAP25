@@ -3,17 +3,13 @@ package strategy;
 import models.CajeroModel;
 import views.CajeroView;
 
-/**
+/*
  * Estrategia para realizar un retiro de dinero de la cuenta.
  */
 public class RetiroStrategy implements OperacionStrategy {
 
-    /**
-     * Solicita una cantidad y la retira de la cuenta si es posible.
-     *
-     * @param model Modelo con la lógica del cajero.
-     * @param view Vista para mostrar mensajes al usuario.
-     */
+    //Solicita una cantidad y la retira de la cuenta si es posible.
+
     @Override
     public void ejecutar(CajeroModel model, CajeroView view) {
         double cantidad = view.solicitarCantidad("retirar");

@@ -7,7 +7,7 @@ import views.CajeroView;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
+/*
  * Controlador principal del cajero automático.
  * Gestiona el ciclo de vida del sistema y delega operaciones
  * a las estrategias correspondientes.
@@ -19,12 +19,8 @@ public class CajeroController {
 
     private Map<Integer, OperacionStrategy> operaciones;
 
-    /**
-     * Constructor del controlador.
-     *
-     * @param model Modelo con la lógica del cajero.
-     * @param view Vista para interactuar con el usuario.
-     */
+    //Constructor del controlador.
+
     public CajeroController(CajeroModel model, CajeroView view) {
         this.model = model;
         this.view = view;
@@ -32,9 +28,8 @@ public class CajeroController {
         inicializarOperaciones();
     }
 
-    /**
-     * Inicializa el mapa de estrategias disponibles.
-     */
+    //Inicializa el mapa de estrategias disponibles.
+
     private void inicializarOperaciones() {
         operaciones = new HashMap<>();
         operaciones.put(1, new ConsultarSaldoStrategy());
@@ -44,10 +39,8 @@ public class CajeroController {
         operaciones.put(5, new CambiarPinStrategy());
     }
 
-    /**
-     * Inicia el sistema del cajero automático.
-     * Autentica al usuario y ejecuta el menú principal.
-     */
+    //Inicia el sistema del cajero automático. Autentica al usuario y ejecuta el menú principal.
+
     public void iniciarSistema() {
         view.mostrarBienvenida();
         while (sistemaActivo) {
@@ -60,25 +53,25 @@ public class CajeroController {
         view.mostrarMensaje("Gracias por usar nuestro cajero");
     }
 
-    /**
-     * Solicita credenciales al usuario y las valida en el modelo.
-     *
-     * @return true si las credenciales son correctas, false en caso contrario.
-     */
+    //Solicita credenciales al usuario y las valida en el modelo.
+
+
     private boolean autenticarUsuario() {
         String numeroCuenta = view.solicitarnumeroCuenta();
         String pin = view.solicitarPin();
         return model.autenticar(numeroCuenta, pin);
     }
 
-    /**
-     * Ejecuta el menú principal y delega las opciones
-     * en la estrategia correspondiente.
-     */
+    //Ejecuta el menú principal y delega las opciones en la estrategia correspondiente.
+
     private void ejecutarMenuPrincipal() {
         boolean seccionActiva = true;
         while (seccionActiva) {
-            view.mostrarMenuPrincipal(model.getCuentaActual().getTitular(),model.getCuentaActual().getTipoCuenta());
+            view.mostrarMenuPrincipal(
+                    model.getCuentaActual().getTitular(),
+                    model.getCuentaActual().getTipoCuenta(),
+                    model.getCuentaActual().getPin()
+            );
             int opcion = view.leerOpcion();
 
             if (opcion == 9) {
@@ -95,9 +88,8 @@ public class CajeroController {
         }
     }
 
-    /**
-     * Cierra el sistema y libera recursos.
-     */
+    //Cierra el sistema y libera recursos.
+
     public void cerrarSistema() {
         view.cerrarScanner();
         sistemaActivo = false;
