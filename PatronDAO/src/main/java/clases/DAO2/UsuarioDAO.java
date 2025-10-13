@@ -1,22 +1,33 @@
 package clases.DAO2;
 
-
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Implementación de DAO para la entidad Usuario
+ * Implementación del DAO para la entidad Usuario
+ * con patrón Singleton.
  */
 public class UsuarioDAO extends GenericDAO<Usuario> {
 
-    public UsuarioDAO(Connection connection) {
+    // Instancia única (Singleton)
+    private static UsuarioDAO instance;
+
+    // Constructor privado para evitar instanciación directa
+    private UsuarioDAO(Connection connection) {
         super(connection);
+    }
+
+    /**
+     * Método estático para obtener la instancia única del DAO
+     */
+    public static synchronized UsuarioDAO getInstance() throws SQLException {
+        if (instance == null) {
+            // Usa el Singleton de DatabaseConnection
+            Connection conn = DatabaseConnection.getInstance().getConnection();
+            instance = new UsuarioDAO(conn);
+        }
+        return instance;
     }
 
     @Override
@@ -45,7 +56,7 @@ public class UsuarioDAO extends GenericDAO<Usuario> {
 
             return true;
         } catch (SQLException e) {
-            System.err.println("Error al guardar usuario: " + e.getMessage());
+            System.err.println("❌ Error al guardar usuario: " + e.getMessage());
             return false;
         }
     }
@@ -63,7 +74,7 @@ public class UsuarioDAO extends GenericDAO<Usuario> {
 
             return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
-            System.err.println("Error al actualizar usuario: " + e.getMessage());
+            System.err.println("❌ Error al actualizar usuario: " + e.getMessage());
             return false;
         }
     }
@@ -74,10 +85,9 @@ public class UsuarioDAO extends GenericDAO<Usuario> {
 
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setLong(1, id);
-
             return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
-            System.err.println("Error al eliminar usuario: " + e.getMessage());
+            System.err.println("❌ Error al eliminar usuario: " + e.getMessage());
             return false;
         }
     }
@@ -88,14 +98,13 @@ public class UsuarioDAO extends GenericDAO<Usuario> {
 
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setLong(1, id);
-
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
                     return mapResultSetToEntity(rs);
                 }
             }
         } catch (SQLException e) {
-            System.err.println("Error al buscar usuario por ID: " + e.getMessage());
+            System.err.println("❌ Error al buscar usuario por ID: " + e.getMessage());
         }
 
         return null;
@@ -113,7 +122,7 @@ public class UsuarioDAO extends GenericDAO<Usuario> {
                 usuarios.add(mapResultSetToEntity(rs));
             }
         } catch (SQLException e) {
-            System.err.println("Error al obtener todos los usuarios: " + e.getMessage());
+            System.err.println("❌ Error al obtener todos los usuarios: " + e.getMessage());
         }
 
         return usuarios;
@@ -131,9 +140,7 @@ public class UsuarioDAO extends GenericDAO<Usuario> {
     }
 
     /**
-     * Busca usuarios por nombre
-     * @param nombre Nombre a buscar
-     * @return Lista de usuarios que coinciden con el nombre
+     * Busca usuarios por nombre (parcial o completo)
      */
     public List<Usuario> findByNombre(String nombre) {
         String sql = "SELECT * FROM usuarios WHERE nombre LIKE ?";

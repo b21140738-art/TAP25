@@ -11,23 +11,24 @@ public class tarea extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        // 1. Label
+        // 1. Label TITULO
         Label lblTitle = new Label("Formulario de Registro");
 
-        // 2. TextField
+
+        // 2. TextField CAJA DE TEXTO
         TextField txtNombre = new TextField();
         txtNombre.setPromptText("Ingresa tu nombre");
 
-        // 3. PasswordField
+        // 3. PasswordField CAJA PARA LA CONTRASEÑA
         PasswordField txtPassword = new PasswordField();
         txtPassword.setPromptText("Ingresa tu contraseña");
 
-        // 4. TextArea
+        // 4. TextArea CAJA DE TEXTO MAS GRANDE
         TextArea txtComentario = new TextArea();
         txtComentario.setPromptText("Comentarios adicionales...");
         txtComentario.setPrefRowCount(3);
 
-        // 5. CheckBox
+        // 5. CheckBox BOTON DE CHECK
         CheckBox chkTerminos = new CheckBox("Acepto los términos y condiciones");
 
         // 6 y 7. RadioButton con ToggleGroup
@@ -44,7 +45,7 @@ public class tarea extends Application {
         cbPais.getItems().addAll("México", "Argentina", "Colombia", "España");
         cbPais.setPromptText("Selecciona tu país");
 
-        // 9. Slider
+        // 9. Slider CONTROL GRAFICO para elegir un valor numerico en el rango definido
         Slider sldEdad = new Slider(0, 100, 18);
         sldEdad.setShowTickLabels(true);
         sldEdad.setShowTickMarks(true);
@@ -54,7 +55,7 @@ public class tarea extends Application {
             lblEdad.setText("Edad: " + newVal.intValue() + " años");
         });
 
-        // 10. ProgressBar
+        // 10. BARRA DE PROCESO
         ProgressBar progressBar = new ProgressBar(0);
         progressBar.setPrefWidth(200);
 
@@ -87,9 +88,9 @@ public class tarea extends Application {
                 progressBar
         );
 
-        // Escena
+        // Escena/VENTANA Y TITULO DE LA ESCENA O VENTANA
         Scene scene = new Scene(root, 350, 500);
-        primaryStage.setTitle("Ejemplo con 10 elementos de JavaFX");
+        primaryStage.setTitle("TAREA DE EJEMPLOS con 10 elementos de JavaFX");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
