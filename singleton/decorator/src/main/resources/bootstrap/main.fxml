@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="clases.ejemplo1.MainController"
+      spacing="10" padding="15" style="-fx-font-family: 'Segoe UI';">
+
+    <Label text="Entrada de Datos:"/>
+    <TextArea fx:id="inputArea" promptText="Ingrese los datos aquí..." prefRowCount="5"/>
+
+    <Button text="Guardar Codificado" onAction="#onSave" styleClass="btn-primary"/>
+    <Label text="Datos Codificados:"/>
+    <TextArea fx:id="encodedArea" promptText="Datos codificados..." editable="false"/>
+
+    <Button text="Leer Decodificado" onAction="#onRead" styleClass="btn-success"/>
+    <Label text="Datos Decodificados:"/>
+    <TextArea fx:id="decodedArea" promptText="Datos decodificados..." editable="false"/>
+
+</VBox>

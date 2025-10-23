@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import java.net.URL?>
+        <?import javafx.geometry.Insets?>
+        <?import javafx.scene.control.*?>
+        <?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="clases.practica_world.controller.MainController"
+      spacing="15" style="-fx-padding: 15;">
+
+<stylesheets>
+    <URL value="@../vistas.css" />
+</stylesheets>
+
+<!-- Título -->
+<Label text="Explorador de Países - World Database" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+
+<!-- Panel de búsqueda -->
+<VBox spacing="10" style="-fx-padding: 15; -fx-background-color: #ecf0f1; -fx-background-radius: 5;">
+    <Label text="Filtros de Búsqueda" style="-fx-font-size: 14; -fx-font-weight: bold;" />
+
+    <HBox spacing="15" alignment="CENTER_LEFT">
+        <VBox spacing="5">
+            <Label text="Continente:" style="-fx-font-weight: bold;" />
+            <ComboBox fx:id="comboContinentes" prefWidth="200" />
+        </VBox>
+
+        <VBox spacing="5">
+            <Label text="Nombre del país:" style="-fx-font-weight: bold;" />
+            <TextField fx:id="txtBuscarNombre" prefWidth="250" promptText="Buscar por nombre..." />
+        </VBox>
+
+        <VBox spacing="5">
+            <Label text="‎" /> <!-- Espacio vacío para alineación -->
+            <HBox spacing="10">
+                <Button fx:id="btnBuscar" text=" Buscar" style="-fx-background-color: #3498db;" />
+                <Button fx:id="btnLimpiar" text=" Limpiar" style="-fx-background-color: #95a5a6;" />
+            </HBox>
+        </VBox>
+    </HBox>
+</VBox>
+
+<!-- Contenido principal -->
+<HBox spacing="20" VBox.vgrow="ALWAYS">
+
+    <!-- Tabla de países -->
+    <VBox spacing="10" prefWidth="600" HBox.hgrow="ALWAYS">
+        <Label text="Lista de Países" style="-fx-font-size: 16; -fx-font-weight: bold;" />
+        <TableView fx:id="tablaPaises" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colCodigo" text="Código" prefWidth="80" />
+                <TableColumn fx:id="colNombre" text="Nombre" prefWidth="180" />
+                <TableColumn fx:id="colContinente" text="Continente" prefWidth="120" />
+                <TableColumn fx:id="colPoblacion" text="Población" prefWidth="120" />
+            </columns>
+        </TableView>
+    </VBox>
+
+    <!-- Panel de detalles -->
+    <VBox spacing="15" prefWidth="350" style="-fx-padding: 20; -fx-background-color: #f8f9fa; -fx-border-color: #bdc3c7; -fx-border-width: 1; -fx-border-radius: 5;">
+        <Label text=" Detalles del País" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+
+        <VBox spacing="12">
+            <VBox spacing="3">
+                <Label text="Nombre:" style="-fx-font-weight: bold; -fx-text-fill: #34495e;" />
+                <Label fx:id="lblNombre" style="-fx-text-fill: #2c3e50; -fx-wrap-text: true;" />
+            </VBox>
+
+            <VBox spacing="3">
+                <Label text="Continente:" style="-fx-font-weight: bold; -fx-text-fill: #34495e;" />
+                <Label fx:id="lblContinente" style="-fx-text-fill: #2c3e50;" />
+            </VBox>
+
+            <VBox spacing="3">
+                <Label text="Región:" style="-fx-font-weight: bold; -fx-text-fill: #34495e;" />
+                <Label fx:id="lblRegion" style="-fx-text-fill: #2c3e50; -fx-wrap-text: true;" />
+            </VBox>
+
+            <VBox spacing="3">
+                <Label text="Población:" style="-fx-font-weight: bold; -fx-text-fill: #34495e;" />
+                <Label fx:id="lblPoblacion" style="-fx-text-fill: #2c3e50;" />
+            </VBox>
+
+            <VBox spacing="3">
+                <Label text="Superficie:" style="-fx-font-weight: bold; -fx-text-fill: #34495e;" />
+                <Label fx:id="lblSuperficie" style="-fx-text-fill: #2c3e50;" />
+            </VBox>
+
+            <VBox spacing="3">
+                <Label text="Año Independencia:" style="-fx-font-weight: bold; -fx-text-fill: #34495e;" />
+                <Label fx:id="lblAnioIndependencia" style="-fx-text-fill: #2c3e50;" />
+            </VBox>
+
+            <VBox spacing="3">
+                <Label text="Forma de Gobierno:" style="-fx-font-weight: bold; -fx-text-fill: #34495e;" />
+                <Label fx:id="lblGobierno" style="-fx-text-fill: #2c3e50; -fx-wrap-text: true;" />
+            </VBox>
+
+            <VBox spacing="3">
+                <Label text="Jefe de Estado:" style="-fx-font-weight: bold; -fx-text-fill: #34495e;" />
+                <Label fx:id="lblJefeEstado" style="-fx-text-fill: #2c3e50; -fx-wrap-text: true;" />
+            </VBox>
+
+            <VBox spacing="3">
+                <Label text="Esperanza de Vida:" style="-fx-font-weight: bold; -fx-text-fill: #34495e;" />
+                <Label fx:id="lblEsperanzaVida" style="-fx-text-fill: #2c3e50;" />
+            </VBox>
+        </VBox>
+
+        <Button fx:id="btnVerCiudades" text="Ver Ciudades" disable="true"
+                style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 15 8 15;" />
+    </VBox>
+</HBox>
+</VBox>

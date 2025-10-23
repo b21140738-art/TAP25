@@ -1,7 +1,7 @@
 package clases.practica_login.controller;
 
 import clases.practica_login.model.Usuario;
-import clases.practica_login.service.autentificar;
+import clases.practica_login.controller.service.autentificar;
 import clases.practica_login.view.registro;
 import javafx.scene.Scene;
 import javafx.stage.Stage;

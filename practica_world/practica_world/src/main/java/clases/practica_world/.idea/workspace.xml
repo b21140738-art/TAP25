@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="72cc8758-d864-493d-b55a-619bb7c7ee41" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/main/java/clases/practica_world/controller/CiudadesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/main/java/clases/practica_world/controller/MainController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/main/java/clases/practica_world/model/Ciudad.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/main/java/clases/practica_world/model/DAO/CiudadDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/main/java/clases/practica_world/model/DAO/PaisDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/main/java/clases/practica_world/model/DatabaseConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/main/java/clases/practica_world/model/Pais.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/main/resources/clases/practica_world/view/ciudades.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/main/resources/clases/practica_world/view/main.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/main/resources/clases/practica_world/vistas.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../../singleton/PRACTICA_LOGIN/src/main/java/clases/practica_login/PrincipalConsola.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../../singleton/PRACTICA_LOGIN/src/main/java/clases/practica_login/view/AplicacionConsola.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../../singleton/decorator/src/main/resources/bootstrap/main.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../../tareaRepository/src/main/java/clases/controllere/UsuarioController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../../tareaRepository/src/main/java/clases/model/entidades/Usuario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../../tareaRepository/src/main/java/clases/model/repository/UsuarioRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../../tareaRepository/src/main/java/clases/model/repository/UsuarioRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../../tareaRepository/src/main/java/clases/model/servicios/Notificador.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../../tareaRepository/src/main/java/clases/model/servicios/NotificadorCifradoDecorator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../../tareaRepository/src/main/java/clases/model/servicios/NotificadorDecorator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../../tareaRepository/src/main/java/clases/model/servicios/NotificadorEmail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../../tareaRepository/src/main/java/clases/model/servicios/NotificadorLogDecorator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../../tareaRepository/src/main/java/clases/model/servicios/NotificadorPush.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../../tareaRepository/src/main/java/clases/model/servicios/NotificadorSMS.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../../tareaRepository/src/main/java/clases/model/servicios/NotificadorUrgenteDecorator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../../tareaRepository/src/main/java/clases/model/servicios/ServicioNotificaciones.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../../tareaRepository/src/main/java/clases/view/ConsolaView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../../programacion_generica" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../../singleton/PRACTICA_LOGIN/src/main/java/clases/practica_login/controller/RegistroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../../singleton/PRACTICA_LOGIN/src/main/java/clases/practica_login/controller/RegistroController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../../singleton/PRACTICA_LOGIN/src/main/java/clases/practica_login/service/autentificar.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../../singleton/PRACTICA_LOGIN/src/main/java/clases/practica_login/controller/service/autentificar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../../singleton/PRACTICA_LOGIN/src/main/java/clases/practica_login/service/password.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../../singleton/PRACTICA_LOGIN/src/main/java/clases/practica_login/controller/service/password.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../../singleton/decorator/src/main/java/clases/ejemplo1/decorators/CompressionDecorator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../../singleton/decorator/src/main/java/clases/ejemplo1/decorators/DataSource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../../singleton/decorator/src/main/java/clases/ejemplo1/decorators/DataSourceDecorator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../../singleton/decorator/src/main/java/clases/ejemplo1/decorators/EncryptionDecorator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../../singleton/decorator/src/main/java/clases/ejemplo1/decorators/FileDataSource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../../singleton/decorator/src/main/java/tareadecorator/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../../DecoratorPizzeria/src/main/java/clases/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../../singleton/equipo3/.idea/workspace.xml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../../../.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "b21140738-art"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/b21140738-art/TAP25.git",
+    "accountId": "102e9977-b95c-4f51-9e94-de60fcaffb3b"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="34O3CfgzqNp4bCENY3olu6oSiwV" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/klauf/OneDrive/Escritorio/Topicos/practica_world/practica_world/src/main/java/clases/practica_world",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.25557.131" />
+        <option value="bundled-js-predefined-d6986cc7102b-b598e85cdad2-JavaScript-IU-252.25557.131" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="72cc8758-d864-493d-b55a-619bb7c7ee41" name="Changes" comment="" />
+      <created>1761070664744</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1761070664744</updated>
+      <workItem from="1761070666009" duration="248000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
