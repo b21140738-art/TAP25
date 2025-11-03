@@ -1,6 +1,5 @@
 package clases.practicaequipo5.model;
 
-
 public class Mensaje {
     private String contenido;
     private String tipo; // "CLIENTE" o "SERVIDOR"

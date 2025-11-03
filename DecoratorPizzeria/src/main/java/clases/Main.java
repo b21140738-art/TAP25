@@ -1,6 +1,7 @@
 package clases;
 
 import clases.Models.*;
+import clases.Models.Decoradores.Pollo;
 import clases.Models.Decoradores.chile;
 
 public class Main {
@@ -20,10 +21,15 @@ public class Main {
         System.out.println("   Costo: $" + pizza2.getCosto());
         System.out.println();
 
-        // Ejemplo 3: PIZZA BASICA
+        // Ejemplo 3: PIZZA BASICA+ CHILE
         PIZZA pizza3= new chile(new Pizzabasica());
         System.out.println("3. " + pizza3.getDescripcion());
         System.out.println("   Costo: $" + pizza3.getCosto());
+        System.out.println();
+
+        PIZZA pizza4= new Pollo(new Pizzabasica());
+        System.out.println("4. " + pizza4.getDescripcion());
+        System.out.println("   Costo: $" + pizza4.getCosto());
         System.out.println();
 
 

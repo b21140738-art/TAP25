@@ -31,6 +31,9 @@ public class ClienteController {
         vista.getBotonEnviar().setOnAction(e -> enviarMensaje());
         vista.getCampoMensaje().setOnAction(e -> enviarMensaje());
 
+        // Evento de historial
+        vista.getBotonHistorial().setOnAction(e -> solicitarHistorial());
+
         // Eventos de cambio de modo
         vista.getGrupoModo().selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
@@ -73,6 +76,7 @@ public class ClienteController {
                 vista.setEstadoConectado(true);
                 vista.agregarMensaje("SISTEMA: Conectado al servidor " + host + ":9090");
                 vista.agregarMensaje("SISTEMA: Selecciona un modo de escritura (Normal, MAYÚSCULAS o minúsculas)");
+                vista.agregarMensaje("SISTEMA: Usa el botón 'Ver Historial' para ver todos los mensajes anteriores");
             });
         } else {
             Platform.runLater(() -> {
@@ -96,6 +100,14 @@ public class ClienteController {
         if (!mensaje.isEmpty() && modelo.isConectado()) {
             modelo.enviarMensaje(mensaje);
             vista.limpiarCampoMensaje();
+        }
+    }
+
+    private void solicitarHistorial() {
+        if (modelo.isConectado()) {
+            // Enviar comando especial al servidor para solicitar historial
+            modelo.solicitarHistorial();
+            vista.agregarMensaje("SISTEMA: Solicitando historial de mensajes...");
         }
     }
 

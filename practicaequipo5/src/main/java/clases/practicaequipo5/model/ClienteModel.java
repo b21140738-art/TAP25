@@ -1,6 +1,5 @@
 package clases.practicaequipo5.model;
 
-
 import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
@@ -51,6 +50,12 @@ public class ClienteModel {
         // Enviar comando especial al servidor para notificar cambio de modo
         if (conectado && salida != null) {
             salida.println("MODO_" + nuevoModo.toUpperCase());
+        }
+    }
+
+    public void solicitarHistorial() {
+        if (conectado && salida != null) {
+            salida.println("HISTORIAL");
         }
     }
 

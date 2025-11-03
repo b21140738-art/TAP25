@@ -14,6 +14,7 @@ public class ClienteView {
     private Button botonEnviar;
     private Button botonConectar;
     private Button botonDesconectar;
+    private Button botonHistorial;
     private TextField campoHost;
     private Label estadoLabel;
     private ToggleGroup grupoModo;
@@ -41,12 +42,15 @@ public class ClienteView {
         botonDesconectar = new Button("Desconectar");
         botonDesconectar.setDisable(true);
 
+        botonHistorial = new Button("Ver Historial");
+        botonHistorial.setDisable(true);
+
         estadoLabel = new Label("Desconectado");
         estadoLabel.setStyle("-fx-text-fill: red;");
 
         panelConexion.getChildren().addAll(
                 new Label("Servidor:"), campoHost,
-                botonConectar, botonDesconectar, estadoLabel
+                botonConectar, botonDesconectar, botonHistorial, estadoLabel
         );
 
         // Panel de selección de modo
@@ -113,6 +117,7 @@ public class ClienteView {
     public Button getBotonEnviar() { return botonEnviar; }
     public Button getBotonConectar() { return botonConectar; }
     public Button getBotonDesconectar() { return botonDesconectar; }
+    public Button getBotonHistorial() { return botonHistorial; }
     public TextField getCampoHost() { return campoHost; }
     public Label getEstadoLabel() { return estadoLabel; }
     public ToggleGroup getGrupoModo() { return grupoModo; }
@@ -134,6 +139,7 @@ public class ClienteView {
             estadoLabel.setStyle("-fx-text-fill: green;");
             botonConectar.setDisable(true);
             botonDesconectar.setDisable(false);
+            botonHistorial.setDisable(false);
             campoMensaje.setDisable(false);
             botonEnviar.setDisable(false);
             // Habilitar los radio buttons cuando está conectado
@@ -145,6 +151,7 @@ public class ClienteView {
             estadoLabel.setStyle("-fx-text-fill: red;");
             botonConectar.setDisable(false);
             botonDesconectar.setDisable(true);
+            botonHistorial.setDisable(true);
             campoMensaje.setDisable(true);
             botonEnviar.setDisable(true);
             // Deshabilitar los radio buttons cuando está desconectado

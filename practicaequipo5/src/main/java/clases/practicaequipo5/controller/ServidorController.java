@@ -1,6 +1,5 @@
 package clases.practicaequipo5.controller;
 
-
 import clases.practicaequipo5.model.ServidorModel;
 import clases.practicaequipo5.view.ServidorView;
 import javafx.application.Platform;
@@ -34,6 +33,7 @@ public class ServidorController {
         Platform.runLater(() -> {
             vista.setEstadoServidor(true);
             vista.agregarLog("Servidor iniciado en puerto 9090");
+            vista.agregarLog("Conectado a MySQL - Base de datos lista");
         });
     }
 

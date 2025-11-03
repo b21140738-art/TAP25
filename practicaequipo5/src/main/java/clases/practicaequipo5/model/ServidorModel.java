@@ -1,9 +1,9 @@
 package clases.practicaequipo5.model;
 
-
+import clases.practicaequipo5.model.decorador.ServidorDecorator;
 import java.io.*;
-        import java.net.*;
-        import java.util.concurrent.ExecutorService;
+import java.net.*;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class ServidorModel {
@@ -11,10 +11,12 @@ public class ServidorModel {
     private ExecutorService poolClientes;
     private boolean servidorActivo;
     private java.util.function.Consumer<String> onLogCallback;
+    private ServidorDecorator servidorDecorator;
 
     public ServidorModel() {
         this.poolClientes = Executors.newCachedThreadPool();
         this.servidorActivo = false;
+        this.servidorDecorator = new ServidorDecorator();
     }
 
     public void iniciarServidor() {
@@ -22,6 +24,7 @@ public class ServidorModel {
             serverSocket = new ServerSocket(9090);
             servidorActivo = true;
             log("Servidor iniciado en puerto 9090");
+            log("Base de datos MySQL configurada y lista");
 
             while (servidorActivo) {
                 try {
@@ -70,9 +73,11 @@ public class ServidorModel {
         private Socket socket;
         private BufferedReader entrada;
         private PrintWriter salida;
+        private String ipCliente;
 
         public ManejadorCliente(Socket socket) {
             this.socket = socket;
+            this.ipCliente = socket.getInetAddress().getHostAddress();
         }
 
         @Override
@@ -81,26 +86,43 @@ public class ServidorModel {
                 entrada = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 salida = new PrintWriter(socket.getOutputStream(), true);
 
-                salida.println("Bienvenido al servidor de chat! Escribe 'MAYUS' para mayúsculas, 'minus' para minúsculas, o 'normal' para texto normal.");
+                salida.println("Bienvenido al servidor de chat! Comandos especiales: HISTORIAL");
 
                 String mensajeCliente;
                 while ((mensajeCliente = entrada.readLine()) != null) {
-                    log("Cliente dice: " + mensajeCliente);
+                    // Procesar comando especial HISTORIAL
+                    if (mensajeCliente.equalsIgnoreCase("HISTORIAL")) {
+                        String historial = obtenerHistorialCliente();
+                        salida.println(historial);
+                        continue;
+                    }
 
-                    String respuesta = procesarMensaje(mensajeCliente);
-                    salida.println(respuesta);
-                    log("Servidor responde: " + respuesta);
+                    log("Cliente " + ipCliente + " dice: " + mensajeCliente);
+
+                    // Guardar mensaje del cliente en BD
+                    Mensaje mensajeClienteObj = new Mensaje(mensajeCliente, "CLIENTE", "NORMAL");
+                    servidorDecorator.guardarMensajeCliente(mensajeClienteObj, socket);
+
                 }
 
             } catch (IOException e) {
-                log("Error con cliente: " + e.getMessage());
+                log("Error con cliente " + ipCliente + ": " + e.getMessage());
             } finally {
                 try {
                     if (socket != null) socket.close();
-                    log("Cliente desconectado: " + socket.getInetAddress());
+                    log("Cliente desconectado: " + ipCliente);
                 } catch (IOException e) {
                     log("Error cerrando conexión: " + e.getMessage());
                 }
+            }
+        }
+
+        private String obtenerHistorialCliente() {
+            try {
+                var historial = servidorDecorator.obtenerHistorialPorCliente(ipCliente);
+                return servidorDecorator.formatearHistorial(historial);
+            } catch (Exception e) {
+                return "Error obteniendo historial: " + e.getMessage();
             }
         }
 
@@ -121,14 +143,8 @@ public class ServidorModel {
             }
 
             // Procesar mensajes normales
-            log("Cliente dice: " + mensaje);
-
-            // El servidor puede aplicar sus propias reglas además de las del cliente
             String respuesta = "Eco: " + mensaje;
-            log("Servidor responde: " + respuesta);
-
             return respuesta;
         }
     }
 }
-

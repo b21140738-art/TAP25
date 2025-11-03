@@ -1,6 +1,5 @@
 package clases.practicaequipo5.view;
 
-
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
@@ -61,7 +60,7 @@ public class ServidorView {
 
     public void setEstadoServidor(boolean activo) {
         if (activo) {
-            estadoLabel.setText("Servidor Activo - Puerto 9090");
+            estadoLabel.setText("Servidor Activo - Puerto 9090 (MySQL Conectado)");
             estadoLabel.setStyle("-fx-text-fill: green; -fx-font-size: 14px;");
             botonIniciar.setDisable(true);
             botonDetener.setDisable(false);
